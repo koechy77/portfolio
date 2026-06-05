@@ -147,7 +147,7 @@ export default function App() {
               <>
                 <MyExperience experiences={portfolioData.experiences} />
                 <MyClients />
-                <MySkills />
+                <MySkills skills={portfolioData.skills} />
               </>
             }
           />

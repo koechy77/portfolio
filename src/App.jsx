@@ -124,12 +124,12 @@ export default App */
 
 
 import { Routes, Route } from 'react-router-dom'
-import Footer from './Footer'
-import Header from './Header'
-import MyClients from './MyClients'
-import MyExperience from './MyExperience'
-import MySkills from './MySkills'
-import Navbar from './Navbar'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import MyClients from './components/MyClients'
+import MyExperience from './components/MyExperience'
+import MySkills from './components/MySkills'
+import Navbar from './components/Navbar'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import { portfolioData } from './data/portfolio'
@@ -137,8 +137,8 @@ import { portfolioData } from './data/portfolio'
 export default function App() {
   return (
     <div className="bg-slate-900 min-h-screen  flex flex-col">
-      <Header name={portfolioData.header.name} tagline={portfolioData.header.tagline} backgroundImage={portfolioData.header.backgroundImage} />
       <Navbar />
+      <Header name={portfolioData.header.name} tagline={portfolioData.header.tagline} backgroundImage={portfolioData.header.backgroundImage} />
       <main className="container mx-auto px-4 py-8 flex-1 bg-slate-700">
         <Routes>
           <Route
@@ -146,8 +146,9 @@ export default function App() {
             element={
               <>
                 <MyExperience experiences={portfolioData.experiences} />
+                <MySkills skills={portfolioData.skills}  />
                 <MyClients />
-                <MySkills skills={portfolioData.skills} />
+                <Contact contact={portfolioData.contact} />
               </>
             }
           />

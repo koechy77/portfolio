@@ -1,10 +1,10 @@
-import headerBg from '../assets/istockphoto-1219382595-1024x1024.jpg'
+
 
 export const portfolioData = {
     header:{
         name: "ONYEM CHIDERA KINGSLEY",
         tagline: "Web Developer",
-        backgroundImage: headerBg,
+        backgroundImage:,
     },
     experiences: [
         {company: "SkillBoost", role: "Web Developer-intern", years: "2026"},

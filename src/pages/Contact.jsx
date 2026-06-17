@@ -2,7 +2,7 @@
 
 export default function Contact({email, phone, linkedin, github}) {
   return (
-    <section>
+    <section className="min-h-screen">
       <div className="overflow-hidden">
         <h2 className="text-2xl font-semibold text-white whitespace-nowrap inline-block animate-snake-marquee">Contact</h2>
       </div>

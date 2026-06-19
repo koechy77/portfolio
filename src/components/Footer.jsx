@@ -5,8 +5,7 @@ export default function Footer({ contact }) {
   return (
     <>
       <div className="bg-gray-950 text-white text-center py-8">
-        <Link to="/" className="text-white text-xl sm:text-4xl md:text-7xl font-bold mx-auto">KingKoech<span className="text-orange-600">.</span></Link>
-        
+
         <div className="flex justify-center gap-6 my-6">
           {contact?.email && (
             <a href={`mailto:${contact.email}`} title="Email" className="text-2xl sm:text-3xl hover:text-orange-600 transition">
@@ -29,8 +28,12 @@ export default function Footer({ contact }) {
             </a>
           )}
         </div>
-        
-        <p>&copy; {new Date().getFullYear()} My Portfolio. All rights reserved.</p>
+
+        <div className='md:flex md:gap-1 md:items-baseline items-center md:justify-center'>
+          <Link to="/" className="text-xl sm:text-4xl md:text-7xl font-bold font-scribble">KingKoech<span className="text-orange-600">.</span></Link>
+
+          <p className='text-sm mr-4'>&copy; {new Date().getFullYear()} My Portfolio. All rights reserved.</p>
+        </div>
       </div>
     </>
   );

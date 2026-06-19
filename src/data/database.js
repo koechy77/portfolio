@@ -14,14 +14,14 @@ const database = {
     ],
     skills: ["React", "TailwindCSS", "DOM", "Git", "UI/UX Design", "Node.js"],
     contact: {
-        email: "kingsleyonyem7@gmail.com",
+        email: "help.aurevra@gmail.com",
         phone: "+234 816 252 2106",
         linkedin: "https://www.linkedin.com/in/chidera-onyem-449b74272/",
         github: "https://github.com/koechy77"
     },
     about: {
         title: "About Me",
-        description: `My name's Kingsley, I'm passionate about creating modern digital experiences,
+        description: `My name's Kingsley. I'm passionate about creating modern digital experiences,
                 Aside being a web developer, I'm currently an Applied Math undergraduate, and a pro Forex, Crypto, Stock
                 Trader; exploring the financial markets and the world of Mathematics.
                 I consider myself to be Divergent.`,
@@ -48,9 +48,9 @@ const database = {
         {
             id: 3,
             title: "Blog Page",
-            description: "",
-            image: null,
-            github: "",
+            description: "A practice blogsite built with react + vite, tailwindcss...",
+            image: `${import.meta.env.BASE_URL}Screenshot (79)(1).png`,
+            github: "https://github.com/koechy77/Blog-Site",
             demoUrl: ""
         }
     ]

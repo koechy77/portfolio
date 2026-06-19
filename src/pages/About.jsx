@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export default function About() {
   return (
     <>
-      <section className="bg-gray-950 py-12">
+      <main className="bg-gray-950 py-12">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-8 px-4">
 
           <div className="flex flex-col justify-center">
@@ -32,7 +32,7 @@ export default function About() {
             />
           </div>
         </div>
-      </section>
+      </main>
     </>
   );
 }

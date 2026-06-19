@@ -5,10 +5,13 @@ import database from "./data/database";
 import { Routes, Route } from 'react-router-dom';
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   return (
     <>
+    <ScrollToTop />
+    
       <Navbar />
 
       <Routes>

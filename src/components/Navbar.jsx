@@ -20,7 +20,7 @@ export default function Navbar() {
               </NavLink>
             </li>
           </ul>
-          <Link to="/" className="text-white text-4xl md:text-7xl font-bold mx-auto font-scribble">KingKoech<span className="text-orange-600">.</span></Link>
+          <Link to="/" className="text-white text-4xl md:text-7xl font-bold mx-auto font-scribble cursor-pointer hover:text-orange-300">KingKoech<span className="text-orange-600">.</span></Link>
           <ul className="hidden md:flex items-center gap-4 ml-auto md:text-4xl text-white font-poppins">
             <li>
               <NavLink

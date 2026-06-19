@@ -30,7 +30,7 @@ export default function Footer({ contact }) {
         </div>
 
         <div className='md:flex md:gap-1 md:items-baseline items-center md:justify-center'>
-          <Link to="/" className="text-xl sm:text-4xl md:text-7xl font-bold font-scribble">KingKoech<span className="text-orange-600">.</span></Link>
+          <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})} className="text-xl sm:text-4xl md:text-7xl font-bold font-scribble cursor-pointer hover:text-orange-300">KingKoech<span className="text-orange-600">.</span></Link>
 
           <p className='text-sm mr-4'>&copy; {new Date().getFullYear()} My Portfolio. All rights reserved.</p>
         </div>

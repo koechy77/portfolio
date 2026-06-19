@@ -1,3 +1,4 @@
+import ContactButton from '../components/ContactButton';
 import database from '../data/database';
 import { motion } from 'framer-motion';
 
@@ -20,6 +21,8 @@ export default function About() {
             <p className="text-orange-300 text-base md:text-lg lg:text-xl p-1 font-semibold mt-6 font-poppins text-center md:text-left leading-relaxed">
               {database.about.description}
             </p>
+
+            <ContactButton />
 
           </div>
 

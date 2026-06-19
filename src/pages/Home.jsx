@@ -45,7 +45,7 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8 }}
-            className="font-extrabold text-4xl md:text-5xl lg:text-6xl  mb-5 px-4">
+            className="font-extrabold font-supermercado text-4xl md:text-5xl lg:text-6xl  mb-5 px-4">
             Projects
           </motion.h2>
 

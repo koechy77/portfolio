@@ -5,6 +5,6 @@ import tailwind from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   // eslint-disable-next-line no-undef
-  base: process.env.VERCEL ? '/' : '/Portfolio/',
+  base: process.env.VERCEL ? '/' : '/portfolio/',
   plugins: [react(), tailwind()],
 })

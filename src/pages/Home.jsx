@@ -1,5 +1,5 @@
 import ContactButton from '../components/ContactButton';
-import ProjectCard from '../components/projectCard';
+import ProjectCard from '../components/ProjectCard';
 import ScrollHint from '../components/ScrollHint';
 import database from '../data/database';
 import { motion, useScroll, useTransform } from 'framer-motion';

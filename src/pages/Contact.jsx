@@ -21,7 +21,7 @@ export default function Contact() {
   }
   return (
     <>
-      <main className="bg-gray-950 min-h-screen font-poppins text-white overflow-x-hidden px-4">
+      <main className="bg-gray-950 min-h-screen font-poppins text-white overflow-x-hidden">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,7 +37,7 @@ export default function Contact() {
           className="text-orange-400 font-semibold text-center">{status}
         </motion.p>}
 
-        <div className=" flex justify-center">
+        <div className=" px-4">
           <motion.form
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -46,7 +46,7 @@ export default function Contact() {
               type: "spring",
               stiffness: 120,
             }}
-            className="my-7" onSubmit={handleSubmit}>
+            className="my-7 max-w-md" onSubmit={handleSubmit}>
 
             <fieldset className="flex flex-col gap-4 border p-7 ">
               <legend>Contact Me</legend>

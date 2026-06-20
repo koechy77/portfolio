@@ -37,7 +37,7 @@ export default function Contact() {
           className="text-orange-400 font-semibold text-center">{status}
         </motion.p>}
 
-        <div className=" px-4">
+        <div className=" flex justify-center px-4">
           <motion.form
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -46,7 +46,7 @@ export default function Contact() {
               type: "spring",
               stiffness: 120,
             }}
-            className="my-7 max-w-md" onSubmit={handleSubmit}>
+            className="my-7" onSubmit={handleSubmit}>
 
             <fieldset className="flex flex-col gap-4 border p-7 ">
               <legend>Contact Me</legend>

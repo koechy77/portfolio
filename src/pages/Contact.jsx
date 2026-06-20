@@ -21,7 +21,7 @@ export default function Contact() {
   }
   return (
     <>
-      <main className="bg-gray-950 min-h-screen font-poppins text-white">
+      <main className="bg-gray-950 min-h-screen font-poppins text-white overflow-x-hidden">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ export default function Contact() {
             }}
             className="my-7" onSubmit={handleSubmit}>
 
-            <fieldset className="flex flex-col gap-4 border p-7">
+            <fieldset className="flex flex-col gap-4 border p-7 ">
               <legend>Contact Me</legend>
 
               <label htmlFor="name">Name</label>

@@ -21,7 +21,7 @@ export default function Contact() {
   }
   return (
     <>
-      <main className="bg-gray-950 min-h-screen font-poppins text-white overflow-x-hidden">
+      <main className="bg-gray-950 min-h-screen font-poppins text-white overflow-x-hidden px-4">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

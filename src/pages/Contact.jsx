@@ -46,7 +46,7 @@ export default function Contact() {
               type: "spring",
               stiffness: 120,
             }}
-            className="my-7 mx-4 md:mx-0" onSubmit={handleSubmit}>
+            className="my-7" onSubmit={handleSubmit}>
 
             <fieldset className="flex flex-col gap-4 border p-4 md:p-7 ">
               <legend>Contact Me</legend>

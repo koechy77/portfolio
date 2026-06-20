@@ -48,7 +48,7 @@ export default function Contact() {
             }}
             className="my-7" onSubmit={handleSubmit}>
 
-            <fieldset className="flex flex-col gap-4 border p-7 ">
+            <fieldset className="flex flex-col gap-4 border p-4 md:p-7 ">
               <legend>Contact Me</legend>
 
               <label htmlFor="name">Name</label>

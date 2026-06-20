@@ -37,7 +37,7 @@ export default function Contact() {
           className="text-orange-400 font-semibold text-center">{status}
         </motion.p>}
 
-        <div className=" flex justify-center px-4">
+        <div className=" flex justify-center px-7">
           <motion.form
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}

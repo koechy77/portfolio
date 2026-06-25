@@ -28,7 +28,9 @@ export default function Home() {
               transition-all
                duration-300
                hover:text-orange-400
+               active:text-orange-400
                 hover:scale-125
+                active:scale-125
                  inline-block
                  '>
                 {letter}

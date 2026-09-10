@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { HiMenu } from "react-icons/hi";
+import { FiGithub, FiLinkedin, FiMail, FiPhone, FiSend } from "react-icons/fi";
+import database from "../data/database";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -15,16 +17,16 @@ export default function Contact() {
     setName("");
     setEmail("");
     setMessage("");
-    setStatus("message sent successfully! ✨");
+    setStatus("Thanks! I will get back to you soon.");
 
     setTimeout(() => {
-      setStatus();
-    }, 700);
+      setStatus("");
+    }, 3500);
   }
    const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   return (
-      <main className="min-h-screen font-poppins text-white overflow-x-hidden">
+      <main className="min-h-screen overflow-x-hidden px-4 pb-20 font-poppins text-white sm:px-6">
         <div className="md:fixed left-15 top-4 mx-3 my-4">
                 <button
                   className="block text-white cursor-pointer"
@@ -56,26 +58,52 @@ export default function Contact() {
                   </div>
                 )}
               </div>
-        <motion.h2
+        <motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center font-extrabold text-4xl md:text-5xl lg:text-6xl mt-11"
+          className="mx-auto max-w-6xl pt-24 md:pt-28"
         >
-          Let"s Build Something Unique!
-        </motion.h2>
-        {status && (
-          <motion.p
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring" }}
-            className="text-orange-400 font-semibold text-center"
-          >
-            {status}
-          </motion.p>
-        )}
+          <p className="mb-3 font-supermercado text-sm uppercase tracking-[0.25em] text-orange-300">
+            Have an idea?
+          </p>
+          <h1 className="max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
+            Let&apos;s build something people remember.
+          </h1>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
+            Tell me what you are working on, where you are stuck, or what you
+            want to bring to life. I&apos;ll bring a thoughtful technical plan to
+            the conversation.
+          </p>
+        </motion.section>
 
-        <div className=" flex justify-center px-7">
+        <div className="mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <aside className="rounded-2xl border border-white/10 bg-gray-950/60 p-6 shadow-2xl shadow-black/20 sm:p-8">
+            <p className="font-supermercado text-xl text-orange-300">Reach out directly</p>
+            <p className="mt-3 text-sm leading-7 text-gray-400">
+              Prefer a quick hello? You can find me through any of these
+              channels.
+            </p>
+            <div className="mt-7 space-y-4 text-sm">
+              <a className="flex items-center gap-3 text-gray-200 transition hover:text-orange-300" href={`mailto:${database.contact.email}`}>
+                <FiMail className="text-xl text-orange-400" aria-hidden="true" />
+                {database.contact.email}
+              </a>
+              <a className="flex items-center gap-3 text-gray-200 transition hover:text-orange-300" href={`tel:${database.contact.phone}`}>
+                <FiPhone className="text-xl text-orange-400" aria-hidden="true" />
+                {database.contact.phone}
+              </a>
+            </div>
+            <div className="mt-8 flex gap-3 border-t border-white/10 pt-6">
+              <a aria-label="GitHub" href={database.contact.github} target="_blank" rel="noreferrer" className="rounded-lg border border-white/10 p-3 text-xl text-gray-300 transition hover:border-orange-300 hover:text-orange-300">
+                <FiGithub aria-hidden="true" />
+              </a>
+              <a aria-label="LinkedIn" href={database.contact.linkedin} target="_blank" rel="noreferrer" className="rounded-lg border border-white/10 p-3 text-xl text-gray-300 transition hover:border-orange-300 hover:text-orange-300">
+                <FiLinkedin aria-hidden="true" />
+              </a>
+            </div>
+          </aside>
+
           <motion.form
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -84,13 +112,14 @@ export default function Contact() {
               type: "spring",
               stiffness: 120,
             }}
-            className="my-7"
+            className="rounded-2xl border border-white/10 bg-gray-900/75 p-6 shadow-2xl shadow-black/20 sm:p-8"
             onSubmit={handleSubmit}
           >
-            <fieldset className="flex flex-col gap-4 border p-4 md:p-7 rounded-xl">
-              <legend className="font-supermercado">Contact Me</legend>
+            <fieldset className="flex flex-col gap-4">
+              <legend className="mb-2 font-supermercado text-2xl text-white">Send a message</legend>
+              <p className="-mt-2 mb-2 text-sm leading-6 text-gray-400">A few details help me understand how I can help.</p>
 
-              <label htmlFor="name">Name</label>
+              <label className="text-sm font-semibold text-gray-200" htmlFor="name">Name</label>
               <input
                 id="name"
                 value={name}
@@ -99,10 +128,10 @@ export default function Contact() {
                 placeholder="enter your name..."
                 autoComplete="name"
                 required
-                className="px-4 py-2 bg-gray-800 rounded-lg"
+                className="rounded-lg border border-white/10 bg-gray-950/70 px-4 py-3 text-white outline-none transition placeholder:text-gray-500 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"
               />
 
-              <label htmlFor="email">Email</label>
+              <label className="text-sm font-semibold text-gray-200" htmlFor="email">Email</label>
               <input
                 id="email"
                 value={email}
@@ -111,30 +140,38 @@ export default function Contact() {
                 placeholder="example@email.com"
                 autoComplete="email"
                 required
-                className="px-4 py-2 bg-gray-800 rounded-lg"
+                className="rounded-lg border border-white/10 bg-gray-950/70 px-4 py-3 text-white outline-none transition placeholder:text-gray-500 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"
               />
 
-              <label htmlFor="message">Message</label>
+              <label className="text-sm font-semibold text-gray-200" htmlFor="message">Message</label>
               <textarea
                 id="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 minLength={10}
                 maxLength={500}
-                placeholder="watchu got for me 🙂"
+                placeholder="Tell me about your idea..."
                 required
-                className="px-4 py-2 bg-gray-800 rounded-lg"
+                className="min-h-36 resize-y rounded-lg border border-white/10 bg-gray-950/70 px-4 py-3 text-white outline-none transition placeholder:text-gray-500 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"
               ></textarea>
 
-              <button type="submit" className="text-orange-400 cursor-pointer">
-                send{" "}
-                <span className="inline-block transition-transform duration-300 group hover:translate-x-2">
-                  💨
-                </span>
+              <button type="submit" className="group mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-orange-400 px-5 py-3 font-semibold text-gray-950 transition hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-gray-900">
+                Send message
+                <FiSend className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </button>
             </fieldset>
           </motion.form>
         </div>
+        {status && (
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring" }}
+            className="mx-auto mt-6 max-w-6xl text-center font-semibold text-orange-300"
+          >
+            {status}
+          </motion.p>
+        )}
       </main>
   );
 }

@@ -52,7 +52,7 @@ export default function About() {
             {database.about.title}
           </motion.h2>
 
-          <p className="text-orange-300 text-base md:text-lg lg:text-xl p-1 font-semibold mt-6 font-poppins text-center md:text-left leading-relaxed">
+          <p className="text-orange-300 text-base md:text-lg lg:text-xl p-1 font-semibold mt-6 text-center md:text-left leading-relaxed font-supermercado">
             {database.about.description}
           </p>
 

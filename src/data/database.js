@@ -36,21 +36,30 @@ const database = {
   },
   about: {
     title: "About Me",
-    description: `My name's Kingsley. I'm passionate about creating modern digital experiences,
-                Aside being a web developer, I'm currently an Applied Math undergraduate, and a pro Forex, Crypto, Stock
-                Trader; exploring the financial markets and the world of Mathematics.
-                I consider myself to be Divergent.`,
+    description: `I'm Kingsley Onyem, a web developer and Applied Mathematics undergraduate who enjoys turning thoughtful ideas into clear, responsive digital experiences. I work across the frontend and backend, using tools like React, Tailwind CSS, Node.js, Express, and databases to build products that feel purposeful and easy to use. Outside of development, I explore mathematics and financial markets through forex, crypto, and stock trading. That mix of creativity, analytical thinking, and curiosity shapes the way I solve problems and create.`,
     image: `${import.meta.env.BASE_URL}media/IMG_4039.jpg`,
   },
   projects: [
     {
       id: 1,
       title: "Blog Site",
-      description:
-        "A practice blogsite",
+      description: "A practice blogsite",
       image: `${import.meta.env.BASE_URL}Screenshot (79)(1).png`,
       github: "https://github.com/koechy77/Blogs-Site",
       demoUrl: "https://koechy77.github.io/Blogs-Site/",
+      tech: [
+        { name: "React", logo: react },
+        { name: "TailwindCSS", logo: tailwind },
+        { name: "Vite", logo: vite },
+      ],
+    },
+    {
+      id: 2,
+      title: "E-commerce Site",
+      description: "A practice e-commerce site",
+      image: `${import.meta.env.BASE_URL}Screenshot (107).png`,
+      github: "https://github.com/koechy77/front-end-e-commerce-website/",
+      demoUrl: "https://koechy77.github.io/front-end-e-commerce-website/",
       tech: [
         { name: "React", logo: react },
         { name: "TailwindCSS", logo: tailwind },
@@ -112,11 +121,11 @@ export const experiences = [
     tech: [
       {
         name: "HTML",
-        logo: html5
+        logo: html5,
       },
       {
         name: "CSS",
-        logo: css
+        logo: css,
       },
       {
         name: "JavaScript",

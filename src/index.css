@@ -26,16 +26,22 @@
 
   .nav {
     isolation: isolate;
-    overflow: hidden;
+    overflow: visible;
   }
 
-  .nav::before {
-    content: "";
+  .nav-shine {
     position: absolute;
     inset: 0;
+    overflow: hidden;
     border-radius: inherit;
     pointer-events: none;
     z-index: 0;
+  }
+
+  .nav-shine::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background: linear-gradient(
       120deg,
       transparent 30%,
@@ -49,6 +55,14 @@
   .nav-content {
     position: relative;
     z-index: 1;
+  }
+
+  .projects-carousel {
+    scrollbar-width: none;
+  }
+
+  .projects-carousel::-webkit-scrollbar {
+    display: none;
   }
 }
 

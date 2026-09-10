@@ -27,16 +27,16 @@ export default function Contact() {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
       <main className="min-h-screen overflow-x-hidden px-4 pb-20 font-poppins text-white sm:px-6">
-        <div className="md:fixed left-15 top-4 mx-3 my-4">
+        <div className="relative z-20 mx-0 pt-4 md:fixed md:left-15 md:top-4 md:mx-3 md:my-4 md:pt-0">
                 <button
-                  className="block text-white cursor-pointer"
+                  className="block cursor-pointer rounded-lg p-1 text-white transition hover:text-orange-300"
                   aria-label="Open menu"
                   onClick={() => setMenuOpen(!menuOpen)}
                 >
-                  <HiMenu className="icon"/>
+                  <HiMenu className="icon" />
                 </button>
                 {menuOpen && (
-                  <div className="absolute md:-left-13 md:top-9 left-2 top-11 rounded-2xl p-2 font-poppins bg-gray-900/95 backdrop-blur-md shadow-2xl">
+                  <div className="absolute left-0 top-12 min-w-36 rounded-2xl border border-white/10 bg-gray-900/95 p-2 font-poppins shadow-2xl backdrop-blur-md md:-left-13 md:top-9">
                     <button
                       className="block w-full text-left p-2 text-white hover:bg-white/10 rounded-xl active:bg-white/10 cursor-pointer"
                       onClick={() => {
@@ -62,36 +62,36 @@ export default function Contact() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mx-auto max-w-6xl pt-24 md:pt-28"
+          className="mx-auto max-w-6xl pt-14 md:pt-28"
         >
           <p className="mb-3 font-supermercado text-sm uppercase tracking-[0.25em] text-orange-300">
             Have an idea?
           </p>
-          <h1 className="max-w-3xl text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
+          <h1 className="max-w-3xl text-3xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
             Let&apos;s build something people remember.
           </h1>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-gray-300 sm:mt-5 sm:text-lg sm:leading-8">
             Tell me what you are working on, where you are stuck, or what you
             want to bring to life. I&apos;ll bring a thoughtful technical plan to
             the conversation.
           </p>
         </motion.section>
 
-        <div className="mx-auto mt-12 grid max-w-6xl gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <aside className="rounded-2xl border border-white/10 bg-gray-950/60 p-6 shadow-2xl shadow-black/20 sm:p-8">
+        <div className="mx-auto mt-8 grid w-full max-w-6xl gap-5 lg:mt-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-8">
+          <aside className="w-full rounded-2xl border border-white/10 bg-gray-950/60 p-5 shadow-2xl shadow-black/20 sm:p-8">
             <p className="font-supermercado text-xl text-orange-300">Reach out directly</p>
             <p className="mt-3 text-sm leading-7 text-gray-400">
               Prefer a quick hello? You can find me through any of these
               channels.
             </p>
             <div className="mt-7 space-y-4 text-sm">
-              <a className="flex items-center gap-3 text-gray-200 transition hover:text-orange-300" href={`mailto:${database.contact.email}`}>
+              <a className="flex min-w-0 items-center gap-3 text-gray-200 transition hover:text-orange-300" href={`mailto:${database.contact.email}`}>
                 <FiMail className="text-xl text-orange-400" aria-hidden="true" />
-                {database.contact.email}
+                <span className="min-w-0 break-words">{database.contact.email}</span>
               </a>
-              <a className="flex items-center gap-3 text-gray-200 transition hover:text-orange-300" href={`tel:${database.contact.phone}`}>
+              <a className="flex min-w-0 items-center gap-3 text-gray-200 transition hover:text-orange-300" href={`tel:${database.contact.phone}`}>
                 <FiPhone className="text-xl text-orange-400" aria-hidden="true" />
-                {database.contact.phone}
+                <span className="min-w-0 break-words">{database.contact.phone}</span>
               </a>
             </div>
             <div className="mt-8 flex gap-3 border-t border-white/10 pt-6">
@@ -112,11 +112,11 @@ export default function Contact() {
               type: "spring",
               stiffness: 120,
             }}
-            className="rounded-2xl border border-white/10 bg-gray-900/75 p-6 shadow-2xl shadow-black/20 sm:p-8"
+            className="w-full rounded-2xl border border-white/10 bg-gray-900/75 p-5 shadow-2xl shadow-black/20 sm:p-8"
             onSubmit={handleSubmit}
           >
             <fieldset className="flex flex-col gap-4">
-              <legend className="mb-2 font-supermercado text-2xl text-white">Send a message</legend>
+              <legend className="mb-2 font-supermercado text-xl text-white sm:text-2xl">Send a message</legend>
               <p className="-mt-2 mb-2 text-sm leading-6 text-gray-400">A few details help me understand how I can help.</p>
 
               <label className="text-sm font-semibold text-gray-200" htmlFor="name">Name</label>

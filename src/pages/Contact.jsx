@@ -77,8 +77,8 @@ export default function Contact() {
           </p>
         </motion.section>
 
-        <div className="mx-auto mt-8 grid w-full max-w-6xl gap-5 lg:mt-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-8">
-          <aside className="w-full rounded-2xl border border-white/10 bg-gray-950/60 p-5 shadow-2xl shadow-black/20 sm:p-8">
+        <div className="mx-auto mt-8 grid min-w-0 w-full max-w-6xl gap-5 lg:mt-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start lg:gap-8">
+          <aside className="min-w-0 w-full max-w-full rounded-2xl border border-white/10 bg-gray-950/60 p-5 shadow-2xl shadow-black/20 sm:p-8">
             <p className="font-supermercado text-xl text-orange-300">Reach out directly</p>
             <p className="mt-3 text-sm leading-7 text-gray-400">
               Prefer a quick hello? You can find me through any of these
@@ -112,10 +112,10 @@ export default function Contact() {
               type: "spring",
               stiffness: 120,
             }}
-            className="w-full rounded-2xl border border-white/10 bg-gray-900/75 p-5 shadow-2xl shadow-black/20 sm:p-8"
+            className="min-w-0 w-full max-w-full rounded-2xl border border-white/10 bg-gray-900/75 p-5 shadow-2xl shadow-black/20 sm:p-8"
             onSubmit={handleSubmit}
           >
-            <fieldset className="flex flex-col gap-4">
+            <fieldset className="flex min-w-0 flex-col gap-4">
               <legend className="mb-2 font-supermercado text-xl text-white sm:text-2xl">Send a message</legend>
               <p className="-mt-2 mb-2 text-sm leading-6 text-gray-400">A few details help me understand how I can help.</p>
 
@@ -128,7 +128,7 @@ export default function Contact() {
                 placeholder="enter your name..."
                 autoComplete="name"
                 required
-                className="rounded-lg border border-white/10 bg-gray-950/70 px-4 py-3 text-white outline-none transition placeholder:text-gray-500 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"
+                className="min-w-0 w-full max-w-full rounded-lg border border-white/10 bg-gray-950/70 px-4 py-3 text-white outline-none transition placeholder:text-gray-500 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"
               />
 
               <label className="text-sm font-semibold text-gray-200" htmlFor="email">Email</label>
@@ -140,7 +140,7 @@ export default function Contact() {
                 placeholder="example@email.com"
                 autoComplete="email"
                 required
-                className="rounded-lg border border-white/10 bg-gray-950/70 px-4 py-3 text-white outline-none transition placeholder:text-gray-500 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"
+                className="min-w-0 w-full max-w-full rounded-lg border border-white/10 bg-gray-950/70 px-4 py-3 text-white outline-none transition placeholder:text-gray-500 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"
               />
 
               <label className="text-sm font-semibold text-gray-200" htmlFor="message">Message</label>
@@ -152,10 +152,10 @@ export default function Contact() {
                 maxLength={500}
                 placeholder="Tell me about your idea..."
                 required
-                className="min-h-36 resize-y rounded-lg border border-white/10 bg-gray-950/70 px-4 py-3 text-white outline-none transition placeholder:text-gray-500 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"
+                className="min-h-36 min-w-0 w-full max-w-full resize-y rounded-lg border border-white/10 bg-gray-950/70 px-4 py-3 text-white outline-none transition placeholder:text-gray-500 focus:border-orange-400 focus:ring-1 focus:ring-orange-400"
               ></textarea>
 
-              <button type="submit" className="group mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-orange-400 px-5 py-3 font-semibold text-gray-950 transition hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-gray-900">
+              <button type="submit" className="group mt-2 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-orange-400 px-5 py-3 font-semibold text-gray-950 transition hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-gray-900">
                 Send message
                 <FiSend className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
               </button>

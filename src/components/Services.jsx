@@ -1,45 +1,42 @@
 import { services } from "../data/database";
 import ServicesCards from "./ServicesCards";
 import { motion } from "framer-motion";
+import { FiLayers, FiMonitor, FiServer, FiRefreshCw } from "react-icons/fi";
+
+const serviceIcons = [FiLayers, FiMonitor, FiServer, FiRefreshCw];
 
 export default function Services() {
   return (
-    <section id="services" className="mx-4 py-12 md:h-auto">
-  <div>
-
-    <motion.h2
-      initial={{ opacity: 0, x: -40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.8 }}
-      className="font-extrabold font-supermercado text-4xl md:text-5xl lg:text-6xl mb-5 px-4 text-white"
-    >
-      My Services
-    </motion.h2>
-
-    {/* Desktop */}
-    <div className="hidden md:grid gap-7 md:grid-cols-2 text-2xl">
-      {services.map((service, index) => (
-        <ServicesCards key={index} service={service} />
-      ))}
-    </div>
-
-    {/* Mobile */}
-    <div className="md:hidden grid gap-7 text-4xl">
-      {services.map((service, index) => (
-        <div
-          key={index}
-          className="sticky"
-          style={{
-            top: `calc(10rem + ${index * 15}px)`,
-          }}
+    <section id="services" className="section-anchor border-y border-white/10 bg-white/2.5">
+      <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="font-display text-3xl font-semibold tracking-tight text-[#edf3ef] sm:text-4xl"
         >
-          <ServicesCards service={service} />
+          Services
+        </motion.h2>
+        <p className="mt-3 max-w-xl text-sm leading-6 text-[#aab7af] sm:text-base">
+          Frontend, backend, and deployment work.
+        </p>
+        <div className="mt-8 grid gap-3 md:grid-cols-2 md:gap-4">
+          {services.map((service, index) => (
+            <div
+              key={service.title}
+              className="sticky md:static"
+              style={{ top: `calc(5rem + ${index * 3}rem)` }}
+            >
+              <ServicesCards
+                service={service}
+                index={index}
+                Icon={serviceIcons[index]}
+              />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-
-  </div>
-</section>
+      </div>
+    </section>
   );
 }

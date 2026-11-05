@@ -1,42 +1,51 @@
-import { motion } from "framer-motion";
 import { techStack } from "../data/database.js";
 
 export default function TechStack() {
+  const toolRows = [
+    techStack.filter((_, index) => index % 2 === 0),
+    techStack.filter((_, index) => index % 2 !== 0),
+  ];
+
   return (
-    <section className="overflow-hidden py-12">
-      <motion.h2
-        initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
-        className="font-extrabold font-supermercado text-4xl md:text-5xl lg:text-6xl mb-5 px-4 text-white"
-      >
-        Tech Stack
-      </motion.h2>
-
-      <div className="overflow-hidden">
-        <motion.div
-          className="flex w-max gap-6"
-          animate={{ x: "-50%" }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        >
-          {[...techStack, ...techStack].map(({ name, logo }, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center
-                     w-24 h-24 rounded-full border border-orange-500/40
-                     shrink-0"
-            >
-              <img src={logo} alt={name} className="w-10 h-10 object-contain" />
-
-              <span className="text-white text-sm mt-2">{name}</span>
+    <section id="stack" className="section-anchor mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
+      <h2 className="font-display text-3xl font-semibold tracking-tight text-[#edf3ef] sm:text-4xl">
+        Tools I work with
+      </h2>
+      <p className="mt-3 max-w-2xl text-sm leading-6 text-[#aab7af] sm:text-base">
+        Technologies I&apos;ve used across projects and internship work.
+      </p>
+      <div className="mt-8 space-y-3">
+        {toolRows.map((tools, rowIndex) => (
+          <div
+            key={rowIndex}
+            className="tool-marquee overflow-hidden"
+            role="region"
+            aria-label={`Technology row ${rowIndex + 1}`}
+            tabIndex={0}
+          >
+            <div className={`tool-marquee-track ${rowIndex === 1 ? "tool-marquee-reverse" : ""}`}>
+              {[0, 1].map((copy) => (
+                <div
+                  key={copy}
+                  className="tool-marquee-copy flex shrink-0 items-center gap-3 pr-3"
+                  aria-hidden={copy === 1}
+                  role="list"
+                >
+                  {tools.map(({ name, logo }) => (
+                    <div
+                      key={name}
+                      role="listitem"
+                      className="flex min-h-16 min-w-40 shrink-0 items-center justify-start gap-3 rounded-sm border border-white/10 bg-white/[0.035] px-4 text-sm font-medium text-[#c2cdc6] transition-colors hover:border-[#fb923c]/45 hover:text-[#f1f5f2]"
+                    >
+                      <img src={logo} alt="" aria-hidden="true" className="size-6 shrink-0 object-contain" />
+                      <span>{name}</span>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
-          ))}
-        </motion.div>
+          </div>
+        ))}
       </div>
     </section>
   );

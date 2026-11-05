@@ -4,28 +4,26 @@ import { experiences } from "../data/database";
 
 export default function Experience() {
   return (
-    <section
-      id="experience"
-      className="mx-4 py-12 font-poppins"
-    >
-      <motion.h2
-        initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
-        className="font-extrabold font-supermercado text-4xl md:text-5xl lg:text-6xl mb-8 px-4 text-white"
-      >
-        Work Experiences
-      </motion.h2>
-
-      <div className="grid gap-6 md:grid-cols-2">
-        {experiences.map((experience, index) => (
-          <ExperienceCard
-            key={index}
-            experience={experience}
-            index={index}
-          />
-        ))}
+    <section id="experience" className="section-anchor border-y border-white/10 bg-white/2.5">
+      <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="font-display text-3xl font-semibold tracking-tight text-[#edf3ef] sm:text-4xl"
+        >
+          Experience
+        </motion.h2>
+        <div className="mt-8 max-w-3xl border-l border-[#fb923c]/35 pl-5 sm:pl-7">
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={`${experience.company}-${experience.role}`}
+              experience={experience}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

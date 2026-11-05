@@ -1,27 +1,57 @@
 import { Link } from "react-router-dom";
 import { FaLinkedin, FaGithub, FaEnvelope, FaPhone } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 export default function Footer({ contact }) {
+  const [lagosTime, setLagosTime] = useState("");
+
+  useEffect(() => {
+    const timeFormatter = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Africa/Lagos",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+    const updateTime = () => setLagosTime(timeFormatter.format(new Date()));
+
+    updateTime();
+    const intervalId = window.setInterval(updateTime, 60_000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
   return (
-    <>
-      <div className="text-center py-8 text-gray-600">
-        <div className="flex justify-center gap-6 my-6">
+    <footer className="border-t border-white/10 bg-[#080f19]/80">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-7 sm:flex-row sm:items-center sm:justify-between md:px-8">
+        <div>
+          <Link
+            to="/"
+            className="font-display text-lg font-bold tracking-tight text-[#edf3ef]"
+          >
+            Kingsley Onyem<span className="text-[#fb923c]">.</span>
+          </Link>
+          <p className="mt-1 text-xs text-[#91a097]">
+            &copy; {new Date().getFullYear()} Kingsley Onyem
+          </p>
+        </div>
+
+        <nav aria-label="Social links" className="flex flex-wrap items-center gap-5">
           {contact?.email && (
             <a
               href={`mailto:${contact.email}`}
-              title="Email"
-              className="text-2xl sm:text-3xl transition border p-1 rounded-lg hover:rotate-90"
+              aria-label="Send an email"
+              className="text-sm font-medium text-[#b4c0b8] transition hover:text-[#fdba74]"
             >
-              <FaEnvelope />
+              <span className="flex items-center gap-2"><FaEnvelope aria-hidden="true" /> Email</span>
             </a>
           )}
           {contact?.phone && (
             <a
               href={`tel:${contact.phone}`}
-              title="Phone"
-              className="text-2xl sm:text-3xl border p-1 rounded-lg hover:rotate-90 transition"
+              aria-label="Call Kingsley Onyem"
+              className="text-sm font-medium text-[#b4c0b8] transition hover:text-[#fdba74]"
             >
-              <FaPhone />
+              <span className="flex items-center gap-2"><FaPhone aria-hidden="true" /> Phone</span>
             </a>
           )}
           {contact?.linkedin && (
@@ -29,10 +59,10 @@ export default function Footer({ contact }) {
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              title="LinkedIn"
-              className="text-2xl sm:text-3xl border p-1 rounded-lg hover:rotate-90 transition"
+              aria-label="LinkedIn profile"
+              className="text-sm font-medium text-[#b4c0b8] transition hover:text-[#fdba74]"
             >
-              <FaLinkedin />
+              <span className="flex items-center gap-2"><FaLinkedin aria-hidden="true" /> LinkedIn</span>
             </a>
           )}
           {contact?.github && (
@@ -40,28 +70,17 @@ export default function Footer({ contact }) {
               href={contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              title="GitHub"
-              className="text-2xl sm:text-3xl border p-1 rounded-lg hover:rotate-90 transition"
+              aria-label="GitHub profile"
+              className="text-sm font-medium text-[#b4c0b8] transition hover:text-[#fdba74]"
             >
-              <FaGithub />
+              <span className="flex items-center gap-2"><FaGithub aria-hidden="true" /> GitHub</span>
             </a>
           )}
-        </div>
-
-        <div className="md:flex md:gap-1 md:items-baseline items-center md:justify-center">
-          <Link
-            to="/"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-xl sm:text-4xl md:text-7xl font-bold font-scribble cursor-pointer hover:text-orange-300"
-          >
-            KingKoech<span className="text-orange-600">.</span>
-          </Link>
-
-          <p className="text-sm mr-4">
-            &copy; {new Date().getFullYear()} - kingkoech. All rights reserved.
-          </p>
-        </div>
+        </nav>
+        <p className="font-mono text-xs text-[#91a097]" aria-label="Current time in Nigeria">
+          nigeria {lagosTime || "--:--"}
+        </p>
       </div>
-    </>
+    </footer>
   );
 }

@@ -1,83 +1,187 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 @import "tailwindcss";
 
 @theme {
-  --font-poppins: "Poppins", sans-serif;
-  --font-scribble: "Rubik Scribble", system-ui;
-  --font-supermercado: "Supermercado One", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
 }
 
 @layer base {
-  input::placeholder,
-  textarea::placeholder {
-    @apply font-supermercado;
+  :root {
+    font-family: "DM Sans", sans-serif;
+    color: #e5eee8;
+    background-color: #020617;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-optical-sizing: auto;
+    font-weight: 400;
   }
 
-  .icon {
-    @apply md:text-4xl text-2xl;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
   html {
-    @apply scroll-smooth;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    background-color: #020617;
+    background-image:
+      linear-gradient(rgba(226, 232, 240, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(226, 232, 240, 0.08) 1px, transparent 1px),
+      radial-gradient(ellipse at 72% 0%, rgba(245, 158, 11, 0.16), transparent 54%);
+    background-size: 60px 60px, 60px 60px, 100% 100%;
+    background-repeat: repeat, repeat, no-repeat;
+    background-attachment: fixed;
   }
 
-  .nav {
-    isolation: isolate;
-    overflow: visible;
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
   }
 
-  .nav-shine {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: 0;
+  body,
+  button,
+  a {
+    font-family: "DM Sans", sans-serif;
   }
 
-  .nav-shine::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      120deg,
-      transparent 30%,
-      rgba(255, 255, 255, 0.2) 50%,
-      transparent 70%
-    );
-    transform: translateX(-120%);
-    animation: shine 4s ease-in-out infinite;
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .nav-content {
-    position: relative;
-    z-index: 1;
-  }
-
-  .projects-carousel {
-    scrollbar-width: none;
-  }
-
-  .projects-carousel::-webkit-scrollbar {
-    display: none;
+  ::selection {
+    color: #07130b;
+    background: #fdba74;
   }
 }
 
-@keyframes shine {
-  100% {
-    transform: translateX(120%);
+.font-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.section-anchor {
+  scroll-margin-top: 6rem;
+}
+
+.tool-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: tool-marquee-left 42s linear infinite;
+}
+
+.tool-marquee-reverse {
+  animation-name: tool-marquee-right;
+  animation-duration: 48s;
+}
+
+.tool-marquee:hover .tool-marquee-track,
+.tool-marquee:focus-within .tool-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes tool-marquee-left {
+  to {
+    transform: translateX(-50%);
   }
 }
 
-@keyframes gridMove {
+@keyframes tool-marquee-right {
   from {
-    background-position: 0 0;
+    transform: translateX(-50%);
   }
 
   to {
-    background-position: 60px 60px;
+    transform: translateX(0);
+  }
+}
+
+.terminal-value {
+  position: relative;
+  display: inline-block;
+  width: 0;
+  max-width: 100%;
+  overflow: visible;
+  white-space: nowrap;
+  vertical-align: bottom;
+  animation: terminal-type var(--terminal-duration)
+    steps(var(--terminal-chars), end) var(--terminal-delay) both;
+}
+
+.terminal-value-text {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.terminal-value::after {
+  position: absolute;
+  top: 0.2em;
+  left: calc(100% + 1px);
+  width: 1px;
+  height: 1.4em;
+  background: #fb923c;
+  content: "";
+  animation:
+    terminal-caret-blink 0.8s steps(2, start) var(--terminal-delay) infinite,
+    terminal-caret-hide 0s linear calc(var(--terminal-delay) + var(--terminal-duration) + 0.25s) forwards;
+}
+
+@keyframes terminal-type {
+  to {
+    width: calc(var(--terminal-chars) * 1ch);
+  }
+}
+
+@keyframes terminal-caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes terminal-caret-hide {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-marquee {
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #fb923c #0b1321;
+  }
+
+  .tool-marquee-track {
+    animation: none;
+  }
+
+  .tool-marquee-copy[aria-hidden="true"] {
+    display: none;
+  }
+
+  .terminal-value {
+    width: auto;
+    animation: none;
+  }
+
+  .terminal-value::after {
+    display: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

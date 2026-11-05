@@ -17,13 +17,13 @@ import postgresql from "../assets/tech/postgresql.svg";
 const database = {
   header: {
     name: "ONYEM CHIDERA KINGSLEY",
-    tagline: "Web Developer",
+    tagline: "Full-Stack Engineer",
     backgroundImage: null,
   },
   experiences: [
     {
       company: "SkillBoost",
-      role: "Web Developer-intern",
+      role: "Full-Stack Engineer Intern",
       years: "2026",
     },
   ],
@@ -36,14 +36,14 @@ const database = {
   },
   about: {
     title: "About Me",
-    description: `I'm Kingsley Onyem, a web developer and Applied Mathematics undergraduate who enjoys turning thoughtful ideas into clear, responsive digital experiences. I work across the frontend and backend, using tools like React, Tailwind CSS, Node.js, Express, and databases to build products that feel purposeful and easy to use. Outside of development, I explore mathematics and financial markets through forex, crypto, and stock trading. That mix of creativity, analytical thinking, and curiosity shapes the way I solve problems and create.`,
+    description: `I'm Kingsley Onyem, a Full-Stack Engineer and Applied Mathematics undergraduate. I build frontend interfaces with React and Tailwind CSS, and backend features with Node.js, Express, and databases.`,
     image: `${import.meta.env.BASE_URL}media/IMG_4039.jpg`,
   },
   projects: [
     {
       id: 1,
       title: "Blog Site",
-      description: "A practice blogsite",
+      description: "A blog website built with React, Tailwind CSS, and Vite.",
       image: `${import.meta.env.BASE_URL}Screenshot (79)(1).png`,
       github: "https://github.com/koechy77/Blogs-Site",
       demoUrl: "https://koechy77.github.io/Blogs-Site/",
@@ -56,7 +56,7 @@ const database = {
     {
       id: 2,
       title: "E-commerce Site",
-      description: "A practice e-commerce site",
+      description: "A frontend storefront built with React, Tailwind CSS, and Vite.",
       image: `${import.meta.env.BASE_URL}Screenshot (107).png`,
       github: "https://github.com/koechy77/front-end-e-commerce-website/",
       demoUrl: "https://koechy77.github.io/front-end-e-commerce-website/",
@@ -75,22 +75,22 @@ export const services = [
   {
     title: "Full-Stack Development",
     description:
-      "Build scalable, responsive web applications from frontend to backend using modern technologies like React, Node.js, Express, and MongoDB.",
+      "Frontend and backend work using React, Node.js, Express, and MongoDB.",
   },
   {
     title: "Frontend Development",
     description:
-      "Create fast, responsive, and user-friendly interfaces that deliver a seamless experience across desktop, tablet, and mobile devices.",
+      "Responsive React interfaces styled with Tailwind CSS.",
   },
   {
     title: "Backend Development",
     description:
-      "Develop secure and efficient REST APIs, manage databases, implement authentication, and build robust server-side functionality.",
+      "REST API routes and database-backed features using Node.js, Express, and MongoDB.",
   },
   {
     title: "Deployment & Maintenance",
     description:
-      "Deploy web applications, fix bugs, improve performance, and provide ongoing updates to keep websites running smoothly.",
+      "Deployment, bug fixes, and ongoing updates for web applications.",
   },
 ];
 
@@ -117,7 +117,7 @@ export const experiences = [
     role: "Frontend Developer Intern",
     company: "SkillBoost LTD",
     description:
-      "Turned ideas into responsive, interactive web experiences by building clean interfaces and reusable components with modern frontend technologies.",
+      "Built responsive web interfaces with HTML, CSS, JavaScript, Tailwind CSS, and React during my internship.",
     tech: [
       {
         name: "HTML",
@@ -146,7 +146,7 @@ export const experiences = [
     role: "Backend Developer Intern",
     company: "SkillBoost LTD",
     description:
-      "Built the systems behind web applications by developing RESTful APIs, working with databases, and creating reliable server-side functionality.",
+      "Worked on REST APIs and database-backed features with Node.js, Express, and MongoDB during my internship.",
     tech: [
       {
         name: "Node.js",

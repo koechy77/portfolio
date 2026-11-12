@@ -1,12 +1,14 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function ServicesCards({ service, index, Icon }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.article
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.45, delay: index * 0.06 }}
+      transition={{ duration: reduceMotion ? 0 : 0.45, delay: index * 0.06 }}
       className="group relative min-h-32 overflow-hidden rounded-md border border-white/10 bg-[#0b1321]/95 p-5 shadow-sm shadow-black/20 transition-colors duration-300 hover:border-[#fb923c]/45 sm:p-6"
     >
       <div className="flex items-center gap-3">

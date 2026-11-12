@@ -1,13 +1,15 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { FiBriefcase } from "react-icons/fi";
 
 export default function ExperienceCard({ experience, index }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.article
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 40 }}
+      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
+      transition={{ duration: reduceMotion ? 0 : 0.5, delay: index * 0.08 }}
       className="relative pb-8 last:pb-0"
     >
       <span

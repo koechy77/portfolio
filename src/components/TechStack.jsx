@@ -1,6 +1,10 @@
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 import { techStack } from "../data/database.js";
 
 export default function TechStack() {
+  const marqueeRef = useRef(null);
+  const marqueeInView = useInView(marqueeRef, { margin: "100px 0px" });
   const toolRows = [
     techStack.filter((_, index) => index % 2 === 0),
     techStack.filter((_, index) => index % 2 !== 0),
@@ -14,7 +18,7 @@ export default function TechStack() {
       <p className="mt-3 max-w-2xl text-sm leading-6 text-[#aab7af] sm:text-base">
         Technologies I&apos;ve used across projects and internship work.
       </p>
-      <div className="mt-8 space-y-3">
+      <div ref={marqueeRef} className="mt-8 space-y-3">
         {toolRows.map((tools, rowIndex) => (
           <div
             key={rowIndex}
@@ -23,7 +27,10 @@ export default function TechStack() {
             aria-label={`Technology row ${rowIndex + 1}`}
             tabIndex={0}
           >
-            <div className={`tool-marquee-track ${rowIndex === 1 ? "tool-marquee-reverse" : ""}`}>
+            <div
+              className={`tool-marquee-track ${rowIndex === 1 ? "tool-marquee-reverse" : ""}`}
+              style={{ animationPlayState: marqueeInView ? "running" : "paused" }}
+            >
               {[0, 1].map((copy) => (
                 <div
                   key={copy}

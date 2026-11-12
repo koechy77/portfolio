@@ -1,19 +1,21 @@
 import { services } from "../data/database";
 import ServicesCards from "./ServicesCards";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { FiLayers, FiMonitor, FiServer, FiRefreshCw } from "react-icons/fi";
 
 const serviceIcons = [FiLayers, FiMonitor, FiServer, FiRefreshCw];
 
 export default function Services() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section id="services" className="section-anchor border-y border-white/10 bg-white/2.5">
       <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
         <motion.h2
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: reduceMotion ? 0 : 0.5 }}
           className="font-display text-3xl font-semibold tracking-tight text-[#edf3ef] sm:text-4xl"
         >
           Services

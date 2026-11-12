@@ -103,51 +103,25 @@
 }
 
 .terminal-value {
-  position: relative;
-  display: inline-block;
-  width: 0;
+  display: block;
+  min-width: 0;
   max-width: 100%;
   overflow: visible;
-  white-space: nowrap;
-  vertical-align: bottom;
-  animation: terminal-type var(--terminal-duration)
-    steps(var(--terminal-chars), end) var(--terminal-delay) both;
+  white-space: normal;
 }
 
-.terminal-value-text {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.terminal-value::after {
-  position: absolute;
-  top: 0.2em;
-  left: calc(100% + 1px);
+.terminal-caret {
+  display: inline-block;
   width: 1px;
-  height: 1.4em;
+  height: 1em;
+  margin-left: 1px;
   background: #fb923c;
-  content: "";
-  animation:
-    terminal-caret-blink 0.8s steps(2, start) var(--terminal-delay) infinite,
-    terminal-caret-hide 0s linear calc(var(--terminal-delay) + var(--terminal-duration) + 0.25s) forwards;
-}
-
-@keyframes terminal-type {
-  to {
-    width: calc(var(--terminal-chars) * 1ch);
-  }
+  vertical-align: text-bottom;
+  animation: terminal-caret-blink 0.8s steps(2, start) infinite;
 }
 
 @keyframes terminal-caret-blink {
   50% {
-    opacity: 0;
-  }
-}
-
-@keyframes terminal-caret-hide {
-  to {
     opacity: 0;
   }
 }
@@ -167,12 +141,7 @@
     display: none;
   }
 
-  .terminal-value {
-    width: auto;
-    animation: none;
-  }
-
-  .terminal-value::after {
+  .terminal-caret {
     display: none;
   }
 

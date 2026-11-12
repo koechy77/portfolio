@@ -1,7 +1,67 @@
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { FiArrowDown, FiArrowUpRight, FiGithub, FiLinkedin } from "react-icons/fi";
 import database from "../data/database";
 import { experiences, techStack } from "../data/database";
+
+const CHARACTER_INTERVAL_MS = 45;
+
+function TerminalValue({ value, delay, reduceMotion }) {
+  const characters = Array.from(value);
+  const [visibleCount, setVisibleCount] = useState(
+    reduceMotion ? characters.length : 0,
+  );
+  const [showCaret, setShowCaret] = useState(!reduceMotion);
+
+  useEffect(() => {
+    let startTimer;
+    let typingTimer;
+    let hideCaretTimer;
+
+    let characterIndex = 0;
+    const revealNextCharacter = () => {
+      characterIndex += 1;
+      setVisibleCount(characterIndex);
+
+      if (characterIndex < characters.length) {
+        typingTimer = window.setTimeout(
+          revealNextCharacter,
+          CHARACTER_INTERVAL_MS,
+        );
+      } else {
+        hideCaretTimer = window.setTimeout(() => setShowCaret(false), 250);
+      }
+    };
+
+    startTimer = window.setTimeout(() => {
+      if (reduceMotion) {
+        setVisibleCount(characters.length);
+        setShowCaret(false);
+        return;
+      }
+
+      setVisibleCount(0);
+      setShowCaret(true);
+      typingTimer = window.setTimeout(revealNextCharacter, delay);
+    }, 0);
+
+    return () => {
+      window.clearTimeout(startTimer);
+      window.clearTimeout(typingTimer);
+      window.clearTimeout(hideCaretTimer);
+    };
+  }, [characters.length, delay, reduceMotion]);
+
+  return (
+    <span className="terminal-value text-[#d3ddd6]">
+      <span className="sr-only">{value}</span>
+      <span aria-hidden="true">
+        {characters.slice(0, visibleCount).join("")}
+        {showCaret && <span className="terminal-caret" />}
+      </span>
+    </span>
+  );
+}
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
@@ -19,7 +79,7 @@ export default function Hero() {
   ];
   let nextTypeDelay = 0.3;
   const profileTimings = profileFacts.map(([, value]) => {
-    const duration = value.length * 0.023;
+    const duration = value.length * CHARACTER_INTERVAL_MS / 1000;
     const timing = { delay: nextTypeDelay, duration };
     nextTypeDelay += duration + 0.16;
     return timing;
@@ -62,16 +122,11 @@ export default function Hero() {
                   <span className={index === 0 ? "text-[#fb923c]" : "text-[#fdba74]"}>
                     {label}&gt;
                   </span>
-                  <span
-                    className="terminal-value text-[#d3ddd6]"
-                    style={{
-                      "--terminal-chars": value.length,
-                      "--terminal-delay": `${profileTimings[index].delay}s`,
-                      "--terminal-duration": `${profileTimings[index].duration}s`,
-                    }}
-                  >
-                    <span className="terminal-value-text">{value}</span>
-                  </span>
+                  <TerminalValue
+                    value={value}
+                    delay={profileTimings[index].delay * 1000}
+                    reduceMotion={reduceMotion}
+                  />
                 </p>
               ))}
             </div>
@@ -83,12 +138,13 @@ export default function Hero() {
           Full-Stack Engineer · Nigeria
         </p>
         <h1 className="font-display text-[2.7rem] font-semibold leading-[1.08] tracking-tight text-[#f1f5f2] sm:text-6xl md:text-[4.25rem]">
-          I build web applications, from interface to API.
+          From first click to API response, I make the whole product work.
         </h1>
         <p className="mt-6 max-w-xl text-base leading-7 text-[#b4c0b8] sm:text-lg sm:leading-8">
-          I&apos;m Kingsley, a Full-Stack Engineer and Applied Mathematics
-          undergraduate. I build React and Tailwind interfaces plus Node.js and
-          Express backend features.
+          I&apos;m Kingsley, a full-stack engineer and applied mathematics
+          undergraduate. I bring analytical rigor to complex problems, designing
+          responsive React and Tailwind CSS interfaces and building the Node.js
+          and Express APIs behind them.
         </p>
 
         <div className="mt-7 grid max-w-xl grid-cols-3 border-y border-white/10 py-4">

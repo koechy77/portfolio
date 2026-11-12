@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import ProjectCard from "./ProjectCard";
 import database from "../data/database";
 
 export default function Projects() {
+  const reduceMotion = useReducedMotion();
   const projects = database.projects ?? [];
   const carouselRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -37,10 +38,10 @@ export default function Projects() {
   return (
     <section id="projects" className="section-anchor mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
       <motion.h2
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, x: 0, y: 0 }}
+        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+        whileInView={reduceMotion ? undefined : { opacity: 1, x: 0, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: reduceMotion ? 0 : 0.5 }}
         className="font-display text-3xl font-semibold tracking-tight text-[#edf3ef] sm:text-4xl"
       >
         Selected work

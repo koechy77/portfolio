@@ -29,22 +29,25 @@ const database = {
   ],
   skills: ["React", "TailwindCSS", "DOM", "Git", "UI/UX Design", "Node.js"],
   contact: {
-    email: "help.aurevra@gmail.com",
+    email: "kingsleyonyem7@gmail.com",
     phone: "+234 816 252 2106",
     linkedin: "https://www.linkedin.com/in/chidera-onyem-449b74272/",
     github: "https://github.com/koechy77",
   },
   about: {
     title: "About Me",
-    description: `I'm Kingsley Onyem, a Full-Stack Engineer and Applied Mathematics undergraduate. I build frontend interfaces with React and Tailwind CSS, and backend features with Node.js, Express, and databases.`,
-    image: `${import.meta.env.BASE_URL}media/IMG_4039.jpg`,
+    description: [
+      "I'm Kingsley Onyem, a full-stack engineer and Applied Mathematics undergraduate based in Nigeria. I'm interested in more than how a screen looks; I want to understand the decisions, data, and interactions that make a product useful.",
+      "Studying mathematics has trained me to break complex problems into smaller, testable parts. I bring that mindset to responsive React and Tailwind CSS interfaces, Node.js and Express APIs, and database-backed features.",
+    ],
+    image: `${import.meta.env.BASE_URL}media/IMG_4039.webp`,
   },
   projects: [
     {
       id: 1,
       title: "Blog Site",
       description: "A blog website built with React, Tailwind CSS, and Vite.",
-      image: `${import.meta.env.BASE_URL}Screenshot (79)(1).png`,
+      image: `${import.meta.env.BASE_URL}Screenshot (79)(1).webp`,
       github: "https://github.com/koechy77/Blogs-Site",
       demoUrl: "https://koechy77.github.io/Blogs-Site/",
       tech: [
@@ -57,7 +60,7 @@ const database = {
       id: 2,
       title: "E-commerce Site",
       description: "A frontend storefront built with React, Tailwind CSS, and Vite.",
-      image: `${import.meta.env.BASE_URL}Screenshot (107).png`,
+      image: `${import.meta.env.BASE_URL}Screenshot (107).webp`,
       github: "https://github.com/koechy77/front-end-e-commerce-website/",
       demoUrl: "https://koechy77.github.io/front-end-e-commerce-website/",
       tech: [
